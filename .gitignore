@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+
+# Local IDE state and screenshots/attachments from Codex
+.idea/
+.codex-remote-attachments/
+.codex/
+.agents/
+.vs/
+.DS_Store

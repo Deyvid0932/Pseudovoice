@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pseudovoice-inference"
+version = "0.2.0"
+description = "Local PseudoVoice speech recognition and Fish Audio voice service"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[project.scripts]
+pseudovoice-server = "pseudovoice.main:main"
+
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

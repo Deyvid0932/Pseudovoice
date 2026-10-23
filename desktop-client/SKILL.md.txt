@@ -1,0 +1,22 @@
+---
+name: desktop-client
+description: Cliente Desktop nativo con Tauri v2, React 19, TypeScript 5.6 y streaming continuo de audio de baja latencia con cpal y rodio en Rust.
+---
+
+# Habilidad: Cliente Desktop Nativo (React + Rust con Tauri v2)
+
+## 1. Stack Tecnológico Exacto
+- **Contenedor Desktop**: Tauri v2.x.
+- **Frontend**: React 19, TypeScript 5.6+, Vite 5.x, Tailwind CSS 3.4+.
+- **Backend Nativo**: Rust 1.82+ (Edición 2021).
+- **Audio Captura**: `cpal` 0.15+ (PCM 16-bit Mono a 16000 Hz / 24000 Hz).
+- **Audio Salida**: `rodio` 0.19+ (reproducción en chunks).
+- **Asincronía y Red**: `tokio` 1.40+ con `tokio-tungstenite` 0.24+ para WebSocket bidireccional.
+
+## 2. Directivas Técnicas
+1. **Sin Retención en Web**: Prohibido acumular buffers crudos de audio en React (`useState`). El hilo de `cpal` en Rust transmite directamente los bytes vía WebSocket.
+2. **Comandos IPC Expuestos**:
+   - `start_voice_capture()`
+   - `stop_voice_capture()`
+   - `switch_active_character(character_id: i32)`
+3. **Estado de Sesión**: Consumir `active_session_states` y ordenar visualmente las directivas de `character_rules` según prioridad.
