@@ -1,6 +1,5 @@
 .env
 .env.*
-!.env.example
 
 # Local IDE state and screenshots/attachments from Codex
 .idea/
@@ -9,5 +8,4 @@
 .agents/
 .vs/
 .DS_Store
-.env.example
 GOOGLE_OAUTH_SETUP.md
