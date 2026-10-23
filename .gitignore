@@ -9,3 +9,5 @@
 .agents/
 .vs/
 .DS_Store
+.env.example
+GOOGLE_OAUTH_SETUP.md
